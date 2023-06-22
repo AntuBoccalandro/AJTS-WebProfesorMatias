@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap icons v5.2.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <style>
+    .fondo {
+      background-color: rgba(47, 210, 255, 0.479);
+    }
+    .btn-a {
+      width: 25%;
+      background-color: green;
+    }
+
+    .rounded-top-image {
+      border-top-left-radius: 0.35rem;
+      border-top-right-radius: 0.35rem;
+    }
+  </style>
+
+  <body class="fondo">
+    <header>
+      <!-- Navbar -->
+      <nav
+        class="navbar navbar-expand-lg navbar-white bg-white fixed-top"
+        aria-label="Fourth navbar example"
+        id="navbar"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              alt="Logo de la página web"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a class="navbar-brand" href="/">Virtual Library</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample04"
+            aria-controls="navbarsExample04"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/library">Librería</a>
+              </li>
+            </ul>
+            <a class="btn btn-outline-primary" href="/login" role="button"
+              >Iniciar sesión</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <br />
+      <br />
+      <br />
+      {% if data == [] %}
+      <div class="container-fluid">
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+          <strong>No se ha cargado ningún libro todavía</strong>
+        </div>
+      </div>
+
+      <script>
+        var alertList = document.querySelectorAll(".alert");
+        alertList.forEach(function (alert) {
+          new bootstrap.Alert(alert);
+        });
+      </script>
+
+      {% endif %}
+      <div class="album py-5">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for book in data %}
+            <div class="col">
+              <div class="card shadow-sm">
+                <img
+                  src="/resources/covers/{{ book[2] }}"
+                  width="100%"
+                  height="225"
+                  class="rounded-top-image"
+                  loading="lazy"
+                />
+                <div class="card-body">
+                  <h2 class="card-text">{{ book[0] }}</h2>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <a
+                        href="/resources/download_book/{{book[1]}}"
+                        download="{{ book[1] }}"
+                        class="btn btn-primary"
+                        >Descargar <i class="bi bi-download"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
