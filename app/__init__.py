@@ -18,6 +18,6 @@ app.register_blueprint(students_scope, url_prefix='/')
 app.register_blueprint(admin_scope, url_prefix='/admin')
 app.register_blueprint(resources_scope, url_prefix='/resources')
 app.register_blueprint(errors_scope, url_prefix='/error')
-app.register_blueprint(login_scope)
+app.register_blueprint(login_scope, url_prefix='/')
 
 resete_table()
