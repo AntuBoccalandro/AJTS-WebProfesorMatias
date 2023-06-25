@@ -1,4 +1,6 @@
-# Developer Config
+from datetime import timedelta
+
+# Devlopment Config
 class Config:
     # SERVER_NAME = "localhost:5000"
     # DEBUG = True
@@ -11,4 +13,8 @@ class Config:
     FILES_FOLDER = "app/" + STATIC_FOLDER + "books/"
     COVERS_FOLDER = "app/" + STATIC_FOLDER + "covers/"
     
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'Lax'
+    PERMANENT_SESSION_LIFETIME = timedelta(days=365)
     SECRET_KEY = 'juanantutoto'
