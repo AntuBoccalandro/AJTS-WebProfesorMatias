@@ -6,6 +6,7 @@ from flask import (
     session,
 )
 from functools import wraps
+from app import cache
 
 
 login_scope = Blueprint('login_scope', __name__)

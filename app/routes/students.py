@@ -3,6 +3,7 @@ from flask import (
     render_template,
 )
 from ..controllers.library_controller import lists
+from app import cache
 
 
 students_scope = Blueprint('students_scope', __name__)
