@@ -24,6 +24,7 @@ def login_required(view):
 
 
 @login_scope.route('/login', methods=['GET', 'POST'])
+@cache.cached()
 def login():
     if request.method == 'POST':
         user = request.form['txtUser']
