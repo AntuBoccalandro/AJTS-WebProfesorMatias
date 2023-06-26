@@ -86,6 +86,8 @@
   </header>
   <main>
     <br />
+    <br />
+    <br />
     {% if data == [] %}
     <div class="container-fluid">
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -108,8 +110,10 @@
           {% for book in data %}
           <div class="col">
             <div class="card shadow-sm" style="background-color: #0a0a23;">
-              <img src="/resources/covers/{{ book[2] }}" class="card-img-top rounded-top-image" alt="Portada del libro"
-                loading="lazy" />
+              <div class="ratio ratio-16x9">
+                <img src="/resources/covers/{{ book[2] }}" class="card-img-top rounded-top-image" alt="Portada del libro"
+                  loading="lazy" />
+              </div>
               <div class="card-body">
                 <h2 class="card-text text-white">{{ book[0] }}</h2>
                 <div class="d-flex justify-content-between align-items-center">
@@ -125,6 +129,7 @@
         </div>
       </div>
     </div>
+    
     
   </main>
   <footer>
