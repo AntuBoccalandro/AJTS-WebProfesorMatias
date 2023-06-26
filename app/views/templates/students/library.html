@@ -104,16 +104,21 @@
     </script>
 
     {% endif %}
+    <style>
+      .card-img-top {
+        object-fit: cover;
+        height: 300px;
+      }
+    </style>
+    
     <div class="album py-5">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           {% for book in data %}
           <div class="col">
             <div class="card shadow-sm" style="background-color: #0a0a23;">
-              <div class="ratio ratio-16x9">
-                <img src="/resources/covers/{{ book[2] }}" class="card-img-top rounded-top-image" alt="Portada del libro"
-                  loading="lazy" />
-              </div>
+              <img src="/resources/covers/{{ book[2] }}" class="card-img-top rounded-top-image" alt="Portada del libro"
+                loading="lazy" />
               <div class="card-body">
                 <h2 class="card-text text-white">{{ book[0] }}</h2>
                 <div class="d-flex justify-content-between align-items-center">
