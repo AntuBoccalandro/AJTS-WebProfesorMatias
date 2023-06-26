@@ -29,9 +29,13 @@
     color: #0a0a23;
   }
 
-  .btn-a {
+  .btn {
     width: 25%;
-    background-color: green;
+    background-color: #fecc4c;
+  }
+
+  .btn:hover {
+    background-color: #f5f6f7 !important;
   }
 
   .rounded-top-image {
@@ -43,7 +47,7 @@
 <body class="fondo">
   <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Fourth navbar example" id="navbar" style="background-color: #0a0a23;">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Fourth navbar example" id="navbar" style="background-color: #0a0a23;">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo de la página web" width="40" height="40" />
@@ -92,9 +96,9 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           {% for book in data %}
           <div class="col">
-            <div class="card shadow-sm" style="background-color: #0a0a23;">
+            <div class="card shadow-sm">
               <img src="/resources/covers/{{ book[2] }}" width="100%" height="225" class="rounded-top-image" loading="lazy" />
-              <div class="card-body">
+              <div class="card-body" style="background-color: #0a0a23;">
                 <h2 class="card-text text-white">{{ book[0] }}</h2>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
