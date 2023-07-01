@@ -6,6 +6,7 @@ from flask import (
     session,
 )
 from functools import wraps
+from ..helpers.cache import cache
 
 
 login_scope = Blueprint('login_scope', __name__)
@@ -24,6 +25,7 @@ def login_required(view):
 
 
 @login_scope.route('/login', methods=['GET', 'POST'])
+@cache.cached()
 def login():
     if request.method == 'POST':
         user = request.form['txtUser']

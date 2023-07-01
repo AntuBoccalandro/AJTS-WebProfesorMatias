@@ -1,13 +1,14 @@
 from flask import Flask
 from config.config import Config
 from flask_compress import Compress
-from flask_caching import Cache
 from .routes.students import students_scope
 from .routes.admin import admin_scope
 from .routes.resources import resources_scope
 from .routes.login import login_scope
 from .routes.errors import errors_scope
 from .database.library_db import resete_table
+from .helpers.cache import cache
+
 
 app = Flask(
     __name__,
@@ -23,6 +24,7 @@ app.register_blueprint(errors_scope, url_prefix='/error')
 app.register_blueprint(login_scope, url_prefix='/')
 
 compress = Compress(app)
-cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 resete_table()
+
+cache.init_app(app)
