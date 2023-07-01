@@ -13,21 +13,18 @@ from ..helpers.filename_formater import format_filenames
 from ..helpers.file_saver import save_files
 from config.config import Config
 from .login import login_required
-from ..helpers.cache import cache
 
 
 admin_scope = Blueprint('admin_scope', __name__)
 
 
 @admin_scope.route('/', methods=['GET'])
-@cache.cached()
 @login_required
 def home():
     return render_template('admin/home.html')
 
 
 @admin_scope.route('/admin_library', methods=['GET'])
-@cache.cached()
 @login_required
 def library():  
     data = lists()
@@ -35,7 +32,6 @@ def library():
 
 
 @admin_scope.route('/dashboard', methods=['GET'])
-@cache.cached()
 @login_required
 def dashboard():
     data = lists()
